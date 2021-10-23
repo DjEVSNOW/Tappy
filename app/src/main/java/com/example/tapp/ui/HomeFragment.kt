@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.tapp.R
 
-class HomeFragment : BaseFragment<SplashViewModel>(SplashViewModel::class) {
+class HomeFragment : BaseFragment<HomeViewModel>(HomeViewModel::class) {
 
     override fun getLayoutRes(): Int = R.layout.home_fragment
 
