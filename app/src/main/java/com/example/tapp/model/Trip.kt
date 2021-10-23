@@ -10,6 +10,12 @@ data class Trip(
     val endDate : Date,
     val adults : Int,
     val children : Int,
-    val transfers : List<Transfer>,
+    val transfers : MutableList<Transfer>,
     val accommodations : List<Accommodation>
-) : Serializable
+) : Serializable {
+    override fun equals(other: Any?): Boolean {
+        if (other !is Trip)
+            return false
+        return id == other.id
+    }
+}

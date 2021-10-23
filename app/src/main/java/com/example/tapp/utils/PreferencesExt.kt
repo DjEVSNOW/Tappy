@@ -3,6 +3,8 @@ package com.example.tapp.utils
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.core.content.edit
+import com.example.tapp.data.Consts
+import com.example.tapp.model.Trip
 import com.example.tapp.model.User
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
@@ -34,6 +36,32 @@ var SharedPreferences.token : String?
 		edit { putString(KEY_TOKEN, value) }
 	}
 
+fun <T> SharedPreferences.putList(spListKey: String, list: List<T>) {
+	val type = object : TypeToken<List<T>>() {}.type
+	val listJson = Gson().toJson(list, type)
+	edit {
+		putString(spListKey, listJson)
+	}
+}
+
+inline fun <reified T> SharedPreferences.getList(spListKey: String): List<T> {
+	val listJson = getString(spListKey, "")
+	if (!listJson.isNullOrBlank()) {
+		val type = object : TypeToken<T>()
+		{}.type
+		val list = mutableListOf<T>()
+		val gson = Gson()
+		val arry : JsonArray = JsonParser().parse(listJson).asJsonArray
+		for (jsonElement in arry)
+		{
+			list.add(gson.fromJson(jsonElement, T::class.java))
+		}
+
+		return list
+//		return Gson().fromJson(listJson, type)
+	}
+	return listOf()
+}
 
 var SharedPreferences.isAccountSet: Boolean
 	get() = getBoolean("IS_ACCOUNT_SET", false)
@@ -41,14 +69,30 @@ var SharedPreferences.isAccountSet: Boolean
 	{
 		edit { putBoolean("IS_ACCOUNT_SET", value) }
 	}
+class DateDeserializer : JsonDeserializer<Date?>
+{
 
+	@Throws(JsonParseException::class)
+	override fun deserialize(element: JsonElement, arg1: Type?, arg2: JsonDeserializationContext?): Date?
+	{
+		val date = element.asString
+		val format = SimpleDateFormat(Consts.Formats.DateTime.DATE_TIME)
+		return try
+		{
+			format.parse(date)
+		} catch (exp : ParseException)
+		{
+			Log.e("Failed to parse Date:", exp.localizedMessage)
+			null
+		}
+	}
+}
 val gson = GsonBuilder()
-//	.setDateFormat(Formats.dateTime)
-//	.registerTypeAdapter(Date::class.java, DateDeserializer())
+	.registerTypeAdapter(Date::class.java, DateDeserializer())
 	.create()
-var SharedPreferences.user : User?
-	get() = gson.fromJson(getString("obj-user-personal", ""), User::class.java)
+var SharedPreferences.trips : List<Trip>
+	get() = getList<Trip>("trips")
 	set(value)
 	{
-		edit { putString("obj-user-personal", gson.toJson(value)) }
+		putList("trips",value)
 	}

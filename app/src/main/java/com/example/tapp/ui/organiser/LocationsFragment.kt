@@ -10,10 +10,12 @@ import com.example.tapp.R
 import com.example.tapp.databinding.LocationsFragmentBinding
 import com.example.tapp.databinding.PlannedTripInfoFragmentBinding
 import com.example.tapp.ui.BaseFragment
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
 
 class LocationsFragment : BaseFragment<LocationsViewModel, LocationsFragmentBinding>(LocationsViewModel::class)  {
 
     override fun getLayoutRes(): Int  = R.layout.locations_fragment
-
+    private val adapter = GroupAdapter<GroupieViewHolder>()
 
 }
