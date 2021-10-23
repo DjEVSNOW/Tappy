@@ -45,6 +45,23 @@ fun Date.getCalendar() : Calendar
 	return cal
 }
 
+fun Date.addMinutes(count : Int) : Date
+{
+	val cal = Calendar.getInstance()
+	cal.time = this
+	cal.add(Calendar.MINUTE, count)
+	this.time = cal.timeInMillis
+	return this
+}
+
+fun Date.addHours(count : Int) : Date
+{
+	val cal = Calendar.getInstance()
+	cal.time = this
+	cal.add(Calendar.HOUR, count)
+	this.time = cal.timeInMillis
+	return this
+}
 fun Date.addDay(count : Int) : Date
 {
 	val cal = Calendar.getInstance()
@@ -86,4 +103,4 @@ fun Date.formatDateToUser() : String
 	return sdf.format(this)
 }
 fun parseDate (inp : String) : Date = SimpleDateFormat(Consts.Formats.DateTime.DATE).parse(inp) ?: Date()
-fun parseDateTime (iso : String) : DateTime = DateTime.parse(iso)
+fun parseDateTime (iso : String) : Date = SimpleDateFormat(Consts.Formats.DateTime.DATE_TIME).parse(iso) ?: Date()

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.tapp.databinding.ActivityMainBinding
+import com.example.tapp.notif.NotificationEventReceiver
 import com.example.tapp.ui.BaseFragment
 import com.example.tapp.ui.home.HomeFragment
 import com.example.tapp.ui.home.HomeFragmentDirections
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity()
 		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 //		setupActionBarWithNavController(navController)
 		setupBottomNavBar()
+		NotificationEventReceiver.setupAlarm(this)
 	}
 
 	private fun isDestinationFromNavBar(id : Int) : Boolean = true//bottomNavBarFragments.contains(id)

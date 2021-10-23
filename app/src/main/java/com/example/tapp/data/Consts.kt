@@ -7,7 +7,7 @@ object Consts {
         object DateTime
         {
             const val DATE = "yyyy-MM-dd"
-            const val DATE_TIME = "dd.MM.yyyy HH:mm:SS"
+            const val DATE_TIME = "yyyy-MM-dd HH:mm"
             const val TIME = "HH:mm:SS"
         }
     }

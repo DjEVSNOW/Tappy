@@ -52,11 +52,23 @@
         <action
             android:id="@+id/action_plannedTripInfoFragment_to_locationsFragment"
             app:destination="@id/locationsFragment" />
+        <action
+            android:id="@+id/action_plannedTripInfoFragment_to_transfersFragment"
+            app:destination="@id/transfersFragment" />
     </fragment>
     <fragment
         android:id="@+id/locationsFragment"
         android:name="com.example.tapp.ui.organiser.LocationsFragment"
         android:label="LocationsFragment" >
+        <argument
+            android:name="trip"
+            app:argType="com.example.tapp.model.Trip" />
+    </fragment>
+    <fragment
+        android:id="@+id/transfersFragment"
+        android:name="com.example.tapp.ui.search.TransfersFragment"
+        android:label="transfers_fragment"
+        tools:layout="@layout/transfers_fragment" >
         <argument
             android:name="trip"
             app:argType="com.example.tapp.model.Trip" />

@@ -10,6 +10,7 @@ import com.example.tapp.ui.SplashFragmentDirections
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.organiser_fragment.*
+import kotlinx.android.synthetic.main.planned_trip_info_fragment.*
 
 class OrganiserFragment : BaseFragment<OrganiserViewModel, OrganiserFragmentBinding>(OrganiserViewModel::class) {
 
@@ -33,6 +34,7 @@ class OrganiserFragment : BaseFragment<OrganiserViewModel, OrganiserFragmentBind
                 }
             }
         }
+
     }
     fun updateList(trips : List<Trip>) {
         adapter.update(

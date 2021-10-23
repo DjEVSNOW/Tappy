@@ -7,7 +7,7 @@ import com.example.tapp.model.Trip
 import com.example.tapp.ui.BaseViewModel
 import kotlinx.coroutines.launch
 
-class PlannedTripInfoViewModel(private val apiRepository: ApiRepository) : BaseViewModel(apiRepository) {
+class PlannedTripInfoViewModel(val apiRepository: ApiRepository) : BaseViewModel(apiRepository) {
     lateinit var args : PlannedTripInfoFragmentArgs
     val trip = MutableLiveData<Trip>()
 
