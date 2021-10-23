@@ -3,6 +3,7 @@ package com.example.tapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
@@ -17,7 +18,8 @@ class MainActivity : AppCompatActivity()
 {
 	private val bottomNavBarFragments = listOf(
 		R.id.homeFragment,
-		R.id.searchFragment
+		R.id.searchFragment,
+		R.id.accountFragment
 	)
 	private val runningFragmentsId = mutableListOf<Int>()
 	private lateinit var binding: ActivityMainBinding
@@ -33,12 +35,12 @@ class MainActivity : AppCompatActivity()
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		val view = binding.root
 		setContentView(view)
-
+		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 //		setupActionBarWithNavController(navController)
 		setupBottomNavBar()
 	}
 
-	private fun isDestinationFromNavBar(id : Int) : Boolean = bottomNavBarFragments.contains(id)
+	private fun isDestinationFromNavBar(id : Int) : Boolean = true//bottomNavBarFragments.contains(id)
 	fun btmNavBarNavigateTo(id : Int)
 	{
 		navController.popBackStack(R.id.homeFragment, false)
@@ -46,6 +48,10 @@ class MainActivity : AppCompatActivity()
 		{
 			R.id.searchFragment -> navController.navigate(
 				HomeFragmentDirections.actionHomeFragmentToSearchFragment(),
+				NavOptions.Builder().setLaunchSingleTop(true).build()
+			)
+			R.id.accountFragment -> navController.navigate(
+				HomeFragmentDirections.actionHomeFragmentToOrganiserFragment(),
 				NavOptions.Builder().setLaunchSingleTop(true).build()
 			)
 

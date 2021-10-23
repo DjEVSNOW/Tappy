@@ -22,8 +22,8 @@
         android:id="@+id/filtersCG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/tripsList"
+        app:layout_constraintStart_toStartOf="@+id/tripsList"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:singleSelection="true">
 
@@ -49,5 +49,17 @@
             android:text="Заметки" />
     </com.google.android.material.chip.ChipGroup>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tripsList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filtersCG"
+        tools:listitem="@layout/item_organiser_trip" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

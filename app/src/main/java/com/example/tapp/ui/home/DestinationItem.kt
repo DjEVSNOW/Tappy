@@ -29,7 +29,7 @@ class DestinationItem(val destination: Destination): Item<GroupieViewHolder>()
             destinationPriceTV.text = ("от ${destination.priceRub} ₽")
             Picasso.get()
                 .load(destination.logoURL)
-                .transform(RoundedCornersTransformation(56.dpToPx, 0))
+                .transform(RoundedCornersTransformation(16.dpToPx, 0))
                 .into(destinationImageIV)
         }
     }

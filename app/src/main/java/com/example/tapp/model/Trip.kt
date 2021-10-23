@@ -1,5 +1,6 @@
 package com.example.tapp.model
 
+import java.io.Serializable
 import java.util.*
 
 data class Trip(
@@ -9,5 +10,6 @@ data class Trip(
     val endDate : Date,
     val adults : Int,
     val children : Int,
-    val transfers : List<Transfer>
-)
+    val transfers : List<Transfer>,
+    val accommodations : List<Accommodation>
+) : Serializable

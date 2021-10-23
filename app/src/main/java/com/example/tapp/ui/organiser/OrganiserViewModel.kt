@@ -1,8 +1,20 @@
 package com.example.tapp.ui.organiser
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tapp.data.ApiRepository
+import com.example.tapp.model.Trip
 import com.example.tapp.ui.BaseViewModel
+import kotlinx.coroutines.launch
 
 class OrganiserViewModel(private val apiRepository: ApiRepository) : BaseViewModel(apiRepository) {
+
+    val selectedTrips = MutableLiveData<List<Trip>>()
+
+    fun getMyTrips() {
+        launch {
+            selectedTrips.value = apiRepository.getMyTrips()
+        }
+    }
+
 }

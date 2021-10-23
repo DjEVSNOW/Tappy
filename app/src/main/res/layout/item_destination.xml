@@ -40,17 +40,17 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="от 100 000"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/primaryLight"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/destinationImageIV" />
+        app:layout_constraintTop_toBottomOf="@+id/destinationItemTagsCG" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/destinationItemTagsCG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/destinationImageIV">
 
         <com.google.android.material.chip.Chip

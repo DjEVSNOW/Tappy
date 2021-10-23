@@ -15,8 +15,6 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding>(HomeViewMo
 
     override fun getLayoutRes(): Int = R.layout.home_fragment
 
-
-
     private val adapter = GroupAdapter<GroupieViewHolder>()
 
     private fun showTags () {
@@ -51,6 +49,7 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding>(HomeViewMo
     private fun updateList()
     {
         adapter.clear()
+
         viewModel.destinations.forEach { destination ->
 
             if (viewModel.shouldItemBeShown(destination)) {
