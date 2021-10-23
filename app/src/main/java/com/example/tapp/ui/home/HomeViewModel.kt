@@ -31,4 +31,18 @@ class HomeViewModel(private val apiRepository: ApiRepository) : BaseViewModel(ap
             50000,7, Transfer.PLANE, listOf("История")),
 
         )
+    fun shouldItemBeShown (destination : Destination) : Boolean {
+        var isEnabled = true
+        if (tagsSelected.size > 0) {
+            isEnabled = false
+            tagsSelected.forEach tags@ { tag ->
+                if (destination.tags.contains(tag))
+                {
+                    isEnabled = true
+
+                }
+            }
+        }
+        return isEnabled
+    }
 }

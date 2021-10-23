@@ -55,18 +55,8 @@ class HomeFragment : BaseFragment<HomeViewModel, HomeFragmentBinding>(HomeViewMo
     {
         adapter.clear()
         viewModel.destinations.forEach { destination ->
-            var isEnabled = true
-            if (viewModel.tagsSelected.size > 0) {
-                isEnabled = false
-                destination.tags.forEach tags@ { tag ->
-                    if (viewModel.tagsSelected.contains(tag))
-                    {
-                        isEnabled = true
-                        return@tags
-                    }
-                }
-            }
-            if (isEnabled) {
+
+            if (viewModel.shouldItemBeShown(destination)) {
                 adapter.add(DestinationItem(destination))
             }
         }
