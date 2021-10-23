@@ -20,6 +20,11 @@ fun Date.getTimeDiff(date2 : Date, timeUnit : TimeUnit) : Long
 	val diffInMillis = date2.time - time
 	return timeUnit.convert(diffInMillis, TimeUnit.MILLISECONDS)
 }
+fun DateTime.getTimeDiff(date2 : DateTime, timeUnit : TimeUnit) : Long
+{
+	val diffInMillis = date2.millis - millis
+	return timeUnit.convert(diffInMillis, TimeUnit.MILLISECONDS)
+}
 fun Date.getYearsDiff(date2 : Date?) : Int?
 {
 	val a : Calendar = this.getCalendar()

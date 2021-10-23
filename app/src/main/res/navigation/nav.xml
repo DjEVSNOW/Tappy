@@ -49,5 +49,16 @@
         <argument
             android:name="trip"
             app:argType="com.example.tapp.model.Trip" />
+        <action
+            android:id="@+id/action_plannedTripInfoFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.example.tapp.ui.organiser.LocationsFragment"
+        android:label="LocationsFragment" >
+        <argument
+            android:name="trip"
+            app:argType="com.example.tapp.model.Trip" />
     </fragment>
 </navigation>

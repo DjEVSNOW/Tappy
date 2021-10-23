@@ -8,5 +8,6 @@ data class Accommodation(
     val location : Location,
     val checkIn : Date,
     val checkOut : Date,
-
+    val tags : List<String>,
+    val price : Int,
     )
