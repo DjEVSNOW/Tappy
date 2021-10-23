@@ -4,15 +4,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.tapp.databinding.ActivityMainBinding
 import com.example.tapp.ui.BaseFragment
+import com.example.tapp.ui.home.HomeFragment
+import com.example.tapp.ui.home.HomeFragmentDirections
+
 class MainActivity : AppCompatActivity()
 {
 	private val bottomNavBarFragments = listOf(
-		R.id.homeFragment
+		R.id.homeFragment,
+		R.id.searchFragment
 	)
 	private val runningFragmentsId = mutableListOf<Int>()
 	private lateinit var binding: ActivityMainBinding
@@ -39,18 +44,11 @@ class MainActivity : AppCompatActivity()
 		navController.popBackStack(R.id.homeFragment, false)
 		when (id)
 		{
-			/*R.id.HomeAccountFragment -> navController.navigate(
-				HomeFragmentDirections.actionHomeFragmentToAccountFragment(),
+			R.id.searchFragment -> navController.navigate(
+				HomeFragmentDirections.actionHomeFragmentToSearchFragment(),
 				NavOptions.Builder().setLaunchSingleTop(true).build()
 			)
-			R.id.homeHistoryFragment -> navController.navigate(
-				HomeFragmentDirections.actionHomeFragmentToHomeHistoryFragment(),
-				NavOptions.Builder().setLaunchSingleTop(true).build()
-			)
-			R.id.leadBoardFragment -> navController.navigate(
-				HomeFragmentDirections.actionHomeFragmentToLeadBoardFragment(),
-				NavOptions.Builder().setLaunchSingleTop(true).build()
-			)*/
+
 		}
 	}
 
