@@ -6,9 +6,6 @@ data class Destination(
     val logoURL : String,
     val priceRub : Int,
     val lengthDays : Int,
-    val transfer : Transfer,
+    val transferType : TransferType,
     val tags : List<String>
 )
-enum class Transfer {
-    CAR, PLANE, TRAIN, BUS, FOOT, BIKE
-}

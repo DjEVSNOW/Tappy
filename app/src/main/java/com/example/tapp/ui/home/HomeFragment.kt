@@ -2,11 +2,8 @@ package com.example.tapp.ui.home
 
 import android.os.Bundle
 import android.view.View
-import android.widget.CompoundButton
 import com.example.tapp.R
 import com.example.tapp.databinding.HomeFragmentBinding
-import com.example.tapp.model.Destination
-import com.example.tapp.model.Transfer
 import com.example.tapp.ui.BaseFragment
 import com.example.tapp.utils.showToast
 import com.google.android.material.chip.Chip
