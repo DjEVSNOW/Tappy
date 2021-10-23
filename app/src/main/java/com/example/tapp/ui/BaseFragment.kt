@@ -2,6 +2,7 @@ package com.example.tapp.ui
 
 import android.graphics.Rect
 import android.os.Bundle
+import android.renderscript.ScriptGroup
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,19 +10,25 @@ import androidx.annotation.LayoutRes
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.viewbinding.ViewBinding
 import com.example.tapp.R
 import com.example.tapp.data.ApiEvents
+import com.example.tapp.databinding.ActivityMainBinding
 import com.example.tapp.utils.showErrorInfo
 import com.example.tapp.utils.showSnackbar
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.lang.reflect.Method
+import java.lang.reflect.ParameterizedType
+import java.lang.reflect.Type
 import kotlin.reflect.KClass
 
-abstract class BaseFragment<out T : BaseViewModel>(viewModelClass: KClass<T>) : Fragment()
+abstract class BaseFragment<out T : BaseViewModel, K : ViewBinding>(viewModelClass: KClass<T>) : Fragment()
 {
 	protected val viewModel : T by viewModel(clazz = viewModelClass)
 	private var isKeyboardShowing = false
-	
+	lateinit var binding : K
+	private set
 	companion object
 	{
 		var currentLoadingSnackBar : Snackbar? = null
@@ -88,8 +95,24 @@ abstract class BaseFragment<out T : BaseViewModel>(viewModelClass: KClass<T>) : 
 	
 	override fun onCreateView(inflater : LayoutInflater, container : ViewGroup?, savedInstanceState : Bundle?) : View?
 	{
-		
-		return inflater.inflate(getLayoutRes(), container, false)
+
+		val superclass: Type = javaClass.genericSuperclass!!
+		val aClass = (superclass as ParameterizedType).actualTypeArguments[1] as Class<*>
+		try {
+			val method: Method = aClass.getDeclaredMethod(
+				"inflate",
+				LayoutInflater::class.java,
+				ViewGroup::class.java,
+				Boolean::class.javaPrimitiveType
+			)
+			binding = method.invoke(null, layoutInflater, container, false) as K
+
+		} catch (e: Exception) {
+			e.printStackTrace()
+		}
+		return binding.root
+
+
 	}
 	
 	open fun onKeyboardShowChange(isShown : Boolean)

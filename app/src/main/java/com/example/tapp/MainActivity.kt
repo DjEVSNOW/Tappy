@@ -11,7 +11,8 @@ import com.example.tapp.databinding.ActivityMainBinding
 import com.example.tapp.ui.BaseFragment
 class MainActivity : AppCompatActivity()
 {
-	private val bottomNavBarFragments = listOf<Fragment>(
+	private val bottomNavBarFragments = listOf(
+		R.id.homeFragment
 	)
 	private val runningFragmentsId = mutableListOf<Int>()
 	private lateinit var binding: ActivityMainBinding
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity()
 	}
 	override fun onBackPressed()
 	{
-		val baseFragment = (supportFragmentManager.fragments.first().childFragmentManager.fragments.first() as? BaseFragment<*>)
+		val baseFragment = (supportFragmentManager.fragments.first().childFragmentManager.fragments.first() as? BaseFragment<*,*>)
 
 		if (baseFragment == null || baseFragment.onBackPressed())
 		{

@@ -3,24 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <item android:id="@+id/homeFragment"
-        android:title="Маршруты"
         app:showAsAction="ifRoom"
         android:orderInCategory="1"
-        android:icon="@drawable/arrow_down" />
+        android:icon="@drawable/ic_baseline_home_24" />
 
     <item
         android:id="@+id/HomeAccountFragment"
-        android:title="На карте"
         app:showAsAction="always"
         android:orderInCategory="2"
-        android:icon="@drawable/arrow_down" />
+        android:icon="@drawable/ic_baseline_search_24" />
 
     <item
         android:id="@+id/leadBoardFragment"
-        android:title="Мои поездки"
         app:showAsAction="always"
         android:orderInCategory="3"
-        android:icon="@drawable/arrow_down" />
+        android:icon="@drawable/ic_baseline_account_circle_24" />
 
 
 </menu>
