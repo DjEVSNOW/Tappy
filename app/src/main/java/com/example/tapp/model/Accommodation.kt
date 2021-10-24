@@ -1,5 +1,6 @@
 package com.example.tapp.model
 
+import java.io.Serializable
 import java.util.*
 
 data class Accommodation(
@@ -10,4 +11,4 @@ data class Accommodation(
     val checkOut : Date,
     val tags : List<String>,
     val price : Int,
-    )
+    ) : Serializable

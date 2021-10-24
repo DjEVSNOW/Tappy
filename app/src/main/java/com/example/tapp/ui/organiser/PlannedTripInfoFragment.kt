@@ -60,5 +60,11 @@ class PlannedTripInfoFragment : BaseFragment<PlannedTripInfoViewModel, PlannedTr
             }
 
         }
+        adapterAccommodation.setOnItemClickListener { item, view ->
+            if (item is AccommodationItem){
+                viewModel.navigator.navigate(PlannedTripInfoFragmentDirections.actionPlannedTripInfoFragmentToAccomodationViewFragment(item.accommodation))
+            }
+
+        }
     }
 }

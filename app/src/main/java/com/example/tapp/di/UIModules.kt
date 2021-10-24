@@ -4,6 +4,7 @@ package com.example.tapp.di
 import com.example.tapp.ui.BaseViewModel
 import com.example.tapp.ui.home.HomeViewModel
 import com.example.tapp.ui.SplashViewModel
+import com.example.tapp.ui.organiser.AccomodationViewViewModel
 import com.example.tapp.ui.organiser.LocationsViewModel
 import com.example.tapp.ui.organiser.OrganiserViewModel
 import com.example.tapp.ui.organiser.PlannedTripInfoViewModel
@@ -20,4 +21,5 @@ val mainModule = module {
 	viewModel { PlannedTripInfoViewModel(get()) }
 	viewModel { LocationsViewModel(get()) }
 	viewModel { TransfersViewModel(get()) }
+	viewModel { AccomodationViewViewModel(get()) }
 }
