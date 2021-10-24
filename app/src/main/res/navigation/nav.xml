@@ -68,6 +68,9 @@
         <action
             android:id="@+id/action_plannedTripInfoFragment_to_transfersFragment"
             app:destination="@id/transfersFragment" />
+        <action
+            android:id="@+id/action_plannedTripInfoFragment_to_accomodationViewFragment"
+            app:destination="@id/accomodationViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/locationsFragment"
@@ -85,5 +88,14 @@
         <argument
             android:name="trip"
             app:argType="com.example.tapp.model.Trip" />
+    </fragment>
+    <fragment
+        android:id="@+id/accomodationViewFragment"
+        android:name="com.example.tapp.ui.organiser.AccomodationViewFragment"
+        android:label="accomodation_view_fragment"
+        tools:layout="@layout/accomodation_view_fragment" >
+        <argument
+            android:name="acc"
+            app:argType="com.example.tapp.model.Accommodation" />
     </fragment>
 </navigation>
