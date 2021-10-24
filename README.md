@@ -1,8 +1,15 @@
 # Tappy
 Travel app
 Android-приложение, чтобы спланировать ваш идеальный отпуск!
+
+# Скриншоты
+<img src="https://raw.githubusercontent.com/DjEVSNOW/Tappy/android/doc/Screenshot%202021-10-24%20062223.png" width="25%" >
+<img src="https://raw.githubusercontent.com/DjEVSNOW/Tappy/android/doc/Screenshot%202021-10-24%20062255.png" width="25%" >
+
 ## Сборка
 Рекомендуется собирать данное приложение с помощью Android Studio. В ней встроенный сборщик gradle всё синхронизирует и соберёт проект.
+
+
 
 # Использованный стэк
 Koltin, Gradle
@@ -16,10 +23,10 @@ Koltin, Gradle
 
 Карты: 
 
--com.tomtom.online:sdk-maps:2.4807
--com.tomtom.online:sdk-search:2.4807
--com.tomtom.online:sdk-routing:2.4807
--com.tomtom.online:sdk-maps-ktx-extensions:2.4807
+- com.tomtom.online:sdk-maps:2.4807
+- com.tomtom.online:sdk-search:2.4807
+- com.tomtom.online:sdk-routing:2.4807
+- com.tomtom.online:sdk-maps-ktx-extensions:2.4807
 
 Навигация в приложении
 
