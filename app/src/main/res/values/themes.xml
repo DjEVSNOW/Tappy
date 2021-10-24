@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.TAPPY" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">#FF8155</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:ignore="DuplicateDefinition">#FF8155</item>
     </style>
 
     <style name="Theme.TAPPY.Button" parent="Theme.AppCompat">
@@ -22,5 +23,19 @@
         <item name="android:backgroundTint">@color/bgButton</item>
         <item name="android:textSize">18dp</item>
         <item name="fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="Theme.TAPPY.InputLabel">
+        <item name="android:textSize">18dp</item>
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:textColor">#796492</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="Theme.TAPPY.InputField">
+        <item name="android:layout_height">42dp</item>
+        <item name="backgroundTint">#FCF9FF</item>
+        <item name="cornerRadius">5dp</item>
+        <item name="android:radius">5dp</item>
     </style>
 </resources>

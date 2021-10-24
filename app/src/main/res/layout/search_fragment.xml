@@ -32,7 +32,7 @@
                 android:src="@drawable/search_icon" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/masterRouteButton"
                 style="@style/Theme.TAPPY.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
