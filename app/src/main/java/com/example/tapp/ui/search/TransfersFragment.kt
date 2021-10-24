@@ -11,9 +11,14 @@ import com.example.tapp.model.Trip
 import com.example.tapp.ui.BaseFragment
 import com.example.tapp.utils.addDay
 import com.example.tapp.utils.addHours
+import com.example.tapp.utils.showToast
+import com.google.android.material.chip.Chip
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.android.synthetic.main.transfers_fragment.*
+import kotlinx.android.synthetic.main.transfers_fragment.destinationList
+import kotlinx.android.synthetic.main.transfers_fragment.destinationTagsCG
 import java.util.*
 
 class TransfersFragment : BaseFragment<TransfersViewModel, TransfersFragmentBinding>(
@@ -89,16 +94,39 @@ class TransfersFragment : BaseFragment<TransfersViewModel, TransfersFragmentBind
 
     )
     lateinit var trip : Trip
+    
     lateinit var args : TransfersFragmentArgs
     private val adapter = GroupAdapter<GroupieViewHolder>()
     override fun getLayoutRes(): Int  = R.layout.transfers_fragment
-
+    private fun showTags () {
+        binding.destinationTagsCG.removeAllViews()
+        viewModel.tags.forEachIndexed {index,  tag ->
+            val chip = layoutInflater.inflate(R.layout.layout_chip_choice, binding.destinationTagsCG, false) as Chip
+            chip.text = tag
+            chip.id = index
+            chip.setOnCheckedChangeListener { buttonView, isChecked ->
+                updateList()
+                val tag = viewModel.tags[index]
+                showToast(tag)
+                if (isChecked)
+                    viewModel.tagsSelected.add(tag)
+                else
+                    viewModel.tagsSelected.remove(tag)
+                updateList()
+            }
+            destinationTagsCG.addView(chip as View)
+            
+        }
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         destinationList.adapter = adapter
         args = viewModel.navArgs()
         trip = args.trip
         updateList()
+        trip.transfers.forEach { destination ->
+            viewModel.tags.addAll(destination.tags)
+        }
         adapter.setOnItemClickListener { item, view ->
             if (item is TransferSelectItem){
                 if (item.isChosen)
@@ -110,9 +138,14 @@ class TransfersFragment : BaseFragment<TransfersViewModel, TransfersFragmentBind
             adapter.notifyDataSetChanged()
             updateList()
         }
+        showTags ()
     }
     fun updateList() {
         adapter.clear()
-        adapter.update(transfers.map { transfer -> TransferSelectItem(transfer, trip.transfers.contains(transfer)) })
+        transfers.forEach { transfer ->
+            if (viewModel.shouldItemBeShown(transfer)) {
+                adapter.add(TransferSelectItem(transfer, trip.transfers.contains(transfer)))
+            }
+        }
     }
 }

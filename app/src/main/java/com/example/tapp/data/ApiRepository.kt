@@ -3,6 +3,7 @@ package com.example.tapp.data
 import android.content.SharedPreferences
 import android.text.format.DateFormat
 import com.example.tapp.model.*
+import com.example.tapp.utils.addDay
 import com.example.tapp.utils.parseDate
 import com.example.tapp.utils.parseDateTime
 import com.example.tapp.utils.trips
@@ -48,6 +49,7 @@ class ApiRepository {
     suspend fun saveMyTrips (trips : List<Trip>)  {
         preferences.trips = trips
     }
+    
     fun saveTrip (trip : Trip)  {
         val list = preferences.trips.toMutableList()
         if (!list.contains(trip)) {
@@ -57,6 +59,27 @@ class ApiRepository {
             list.add(trip)
         }
         preferences.trips = list
+    }
+    fun createTrip () : Trip  {
+        val trip = Trip(
+                System.currentTimeMillis(), "СПБ - Сочи",
+                Date(),
+                Date().addDay(14),
+                2,
+                2,
+                mutableListOf<Transfer>(),
+                listOf(
+                        Accommodation(
+                                0, "Ленинградская", Location(0f, 0f),
+                                Date(),
+                                Date().addDay(14),
+                                listOf("Близко к центру", "Удобства в номере"),
+                                15000
+                                     )
+                      )
+               )
+        saveTrip(trip)
+        return trip
     }
 
     private fun getDummyList() = listOf(

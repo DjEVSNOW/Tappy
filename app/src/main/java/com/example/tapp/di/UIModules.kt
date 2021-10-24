@@ -10,6 +10,7 @@ import com.example.tapp.ui.organiser.OrganiserViewModel
 import com.example.tapp.ui.organiser.PlannedTripInfoViewModel
 import com.example.tapp.ui.search.SearchViewModel
 import com.example.tapp.ui.search.TransfersViewModel
+import com.example.tapp.ui.search.masterroutea.MasterRouteAViewModel
 import org.koin.dsl.module
 import org.koin.androidx.viewmodel.dsl.viewModel
 val mainModule = module {
@@ -22,4 +23,5 @@ val mainModule = module {
 	viewModel { LocationsViewModel(get()) }
 	viewModel { TransfersViewModel(get()) }
 	viewModel { AccomodationViewViewModel(get()) }
+	viewModel { MasterRouteAViewModel(get()) }
 }
