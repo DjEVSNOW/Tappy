@@ -98,7 +98,7 @@ class ApiRepository {
             2,
             mutableListOf(
                 Transfer(
-                    0, 40000, TransferType.BUS,
+                    1, 40000, TransferType.BUS,
                     parseDateTime("2021-05-22 00:00"),
                     parseDateTime("2021-05-22 07:40"),
                     listOf(
@@ -109,7 +109,7 @@ class ApiRepository {
                     ),
                     listOf("Прямой")
                 ), Transfer(
-                    1, 0, TransferType.CAR,
+                    2, 0, TransferType.CAR,
                     parseDateTime("2021-05-24 18:00"),
                     parseDateTime("2021-05-25 03:20"),
                     listOf(),

@@ -8,7 +8,7 @@
     android:background="@mipmap/card_bg">
 
     <TextView
-        android:id="@+id/trancferPriceTV"
+        android:id="@+id/placeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trancferPriceTV" />
+        app:layout_constraintTop_toBottomOf="@+id/placeName" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -45,7 +45,7 @@
         app:srcCompat="@drawable/ic_baseline_star_24" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/placesIV"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginEnd="8dp"
@@ -65,11 +65,11 @@
         android:text="+"
         android:textColor="#C4C4C4"
         android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/placesIV"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/placesMap"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="8dp"

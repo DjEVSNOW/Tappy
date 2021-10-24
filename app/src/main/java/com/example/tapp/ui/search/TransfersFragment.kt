@@ -20,7 +20,7 @@ class TransfersFragment : BaseFragment<TransfersViewModel, TransfersFragmentBind
     TransfersViewModel::class) {
     val transfers = listOf(
         Transfer(
-            0,
+            100,
             5000,
             TransferType.PLANE,
             Date().addDay(1),
@@ -36,7 +36,7 @@ class TransfersFragment : BaseFragment<TransfersViewModel, TransfersFragmentBind
             "Сочи"
         ),
         Transfer(
-            1,
+            101,
             5000,
             TransferType.PLANE,
             Date().addHours(4),
@@ -53,7 +53,7 @@ class TransfersFragment : BaseFragment<TransfersViewModel, TransfersFragmentBind
         ),
 
         Transfer(
-            2,
+            102,
             5000,
             TransferType.PLANE,
             Date().addHours(-4),
@@ -70,7 +70,7 @@ class TransfersFragment : BaseFragment<TransfersViewModel, TransfersFragmentBind
         ),
 
         Transfer(
-            3,
+            103,
             5000,
             TransferType.PLANE,
             Date().addDay(30),
