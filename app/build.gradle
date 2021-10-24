@@ -37,7 +37,7 @@ android {
     }
     splits {
         abi {
-            enable true
+//            enable true
         }
     }
 }
