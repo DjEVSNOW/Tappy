@@ -1,0 +1,14 @@
+package com.example.tapp.model
+
+import java.io.Serializable
+import java.util.*
+
+data class Accommodation(
+    val id : Long,
+    val name : String,
+    val location : Location,
+    val checkIn : Date,
+    val checkOut : Date,
+    val tags : List<String>,
+    val price : Int,
+    ) : Serializable
