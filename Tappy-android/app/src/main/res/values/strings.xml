@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TAPPY</string>
+    <string name="api_error_template">Error #</string>
+    <string name="action_loading">Loading ...</string>
+</resources>
